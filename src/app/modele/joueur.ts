@@ -1,4 +1,5 @@
 export class Joueur{
-    nom:string = "inconnu";
-    motDePasse:string = "11";
+    nom:string = "";
+    motDePasse:string = "";
+    courriel="";
 };

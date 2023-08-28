@@ -5,10 +5,10 @@
 
     <form>
        <label>Nom:</label>
-       <input type='text' [(ngModel)]='joueurConnecte.nom'><br>
+       <input type='text' [(ngModel)]='joueurCandidat.nom' name="nom"><br>
 
        <label>Mot de passe:</label>
-       <input type="password" [(ngModel)]='joueurConnecte.motDePasse'><br>
+       <input type="password" [(ngModel)]='joueurCandidat.motDePasse' name="mdp"><br>
 
        <button class="btn btn-primary" (click)="connexion()">se connecter</button>
 
@@ -20,6 +20,30 @@
 
 <br><br>
 <button class="btn btn-warning"  (click)="creationCompte()">Se créer un compte</button>
+</div>
 
-    
+<div *ngIf="creerCompteVisible">
+   <h5>Créez votre compte</h5>
+   <form (ngSubmit)='validerCreationCompte()'>
+      <label>Nom:</label>
+      <input name="nom" [(ngModel)]="joueurCandidat.nom"><br>
+      <label>Courriel:</label>
+      <input name="courriel" [(ngModel)]="joueurCandidat.courriel"><br>
+      <label>Mot de passe:</label>
+      <input type="password" name="mdp" [(ngModel)]="joueurCandidat.motDePasse"><br>
+      <label>Confirmation</label>
+      <input type="password" name="cfn" [(ngModel)]="confirmation"><br>
+
+      <button type="submit">Valider</button><br>
+      <button (click)="annulerCreationCompte()">Annuler</button>
+      <button (click)="afficherTousLesJoueurs()">Joueurs</button>
+      
+
+
+
+   </form>
+
+
+
+
 </div>
