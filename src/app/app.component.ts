@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Joueur } from './modele/joueur';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Poker420';
+  logonOK = false;
+
+  onConnexionReussie(j:Joueur)
+  {
+    this.logonOK=true;
+  }
+
+  onQuitterAccueil(j : Joueur)
+  {
+    this.logonOK=false;
+  }
 }

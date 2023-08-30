@@ -1,3 +1,21 @@
-<h1>Poker 420</h1>
+<div class="container">
 
-<app-connexion></app-connexion>
+    <section id="entete" class="row border border-info border-5">
+        <h1>Poker 420</h1>
+    </section>
+
+
+    <app-connexion *ngIf="!logonOK"
+    (connexionReussie) = "onConnexionReussie($event)"        
+    (connexionReussie) = "acc.onConnexionReussie($event)">
+    </app-connexion>
+
+    
+    <app-accueil #acc
+      (quitterAccueil) = "onQuitterAccueil($event)">
+    </app-accueil>
+
+
+</div>
+
+
