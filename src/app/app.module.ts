@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { CreationPartieComponent } from './creation-partie/creation-partie.component';
+import { TableDeJeuComponent } from './table-de-jeu/table-de-jeu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConnexionComponent,
-    AccueilComponent
+    AccueilComponent,
+    CreationPartieComponent,
+    TableDeJeuComponent
   ],
   imports: [
     BrowserModule,

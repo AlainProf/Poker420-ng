@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Joueur } from './../modele/joueur';
+import { tr } from './../util';
 
 @Component({
   selector: 'app-accueil',
@@ -13,8 +14,12 @@ export class AccueilComponent {
   joueurConnecte = new Joueur();
 
   @Output() quitterAccueil = new EventEmitter<Joueur>();
+  @Output() ouvrirCreationPartie = new EventEmitter<Joueur>();
 
 
+  //--------------------------------
+  //
+  //--------------------------------
   quitter()
   {
     this.visible=false;
@@ -23,10 +28,24 @@ export class AccueilComponent {
 
   }
 
+  //--------------------------------
+  //
+  //--------------------------------
   onConnexionReussie(j:Joueur)
   {
     this.joueurConnecte = j;
     this.visible=true;
   }
+
+  //--------------------------------
+  //
+  //--------------------------------
+  creationPartie()
+  {
+    //tr("appwel de Créer partie", true);
+    this.visible = false;
+    this.ouvrirCreationPartie.emit(this.joueurConnecte);
+  }
+
 
 }

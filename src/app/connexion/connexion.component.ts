@@ -45,9 +45,18 @@ export class ConnexionComponent {
     {
       this.pk420Srv.connexion(this.joueurCandidat).subscribe(
         joueurConnec => {
-          tr("Joueur connexté:" + joueurConnec.nom);
-          this.joueurConnecte = joueurConnec;
-          this.connexionReussie.emit(this.joueurConnecte);
+          if (joueurConnec.courriel == null) 
+          {
+            tr("Erreur de connexion", true);
+          }
+          else
+          {
+            tr("Joueur connexté:" + joueurConnec.nom);
+            this.joueurConnecte = joueurConnec;
+            this.connexionReussie.emit(this.joueurConnecte);
+          }
+
+
         }
       )
     }
@@ -117,4 +126,5 @@ export class ConnexionComponent {
 
   }
 
+ 
 }

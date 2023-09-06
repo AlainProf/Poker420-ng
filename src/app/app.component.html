@@ -12,9 +12,17 @@
 
     
     <app-accueil #acc
-      (quitterAccueil) = "onQuitterAccueil($event)">
+      (quitterAccueil) = "onQuitterAccueil($event)"
+      (ouvrirCreationPartie) = "creerP.onOuvrirCreationPartie($event)">
     </app-accueil>
 
+    <app-creation-partie #creerP
+      (demarrerPartie) = "tdj.onDemarrerPartie($event)">
+    </app-creation-partie>
+
+    <app-table-de-jeu #tdj>
+
+    </app-table-de-jeu>
 
 </div>
 

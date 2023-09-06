@@ -1,0 +1,14 @@
+<section *ngIf="visible">
+
+<h5>Choisisseez vos adversaires</h5>
+<div class="row">
+   <section class="col-1" *ngFor="let j of tabJoueurs">
+     <input type="checkBox" [(ngModel)]="j.choisi" (click)="basculeJoueur(j.id)">{{j.nom}}
+   </section>
+</div>
+
+<button class="btn btn-primary" (click)="accepterJoueurs()">Accepter ces joueurs</button>
+<button class="btn btn-danger" (click)="quitter()">Accueil</button>
+
+
+</section>
