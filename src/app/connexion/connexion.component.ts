@@ -116,7 +116,7 @@ export class ConnexionComponent {
   //--------------------------------
   //
   //--------------------------------
-  afficherTousLesJoueurs()
+  /*afficherTousLesJoueurs()
   {
     this.pk420Srv.getJoueurs().subscribe(
       tabJ => {
@@ -124,7 +124,7 @@ export class ConnexionComponent {
       }
     );
 
-  }
+  }*/
 
  
 }

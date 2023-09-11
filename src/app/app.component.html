@@ -13,15 +13,17 @@
     
     <app-accueil #acc
       (quitterAccueil) = "onQuitterAccueil($event)"
-      (ouvrirCreationPartie) = "creerP.onOuvrirCreationPartie($event)">
+      (ouvrirCreationPartie) = "creerP.onOuvrirCreationPartie($event)"
+      (ouvrirPartieEnCours) = "tdj.onOuvrirPartieEnCours($event)">
     </app-accueil>
 
     <app-creation-partie #creerP
-      (demarrerPartie) = "tdj.onDemarrerPartie($event)">
+      (demarrerPartie) = "tdj.onDemarrerPartie($event)"
+      (quitterCreationPartie) = "acc.onQuitterCreationPartie($event)">
     </app-creation-partie>
 
-    <app-table-de-jeu #tdj>
-
+    <app-table-de-jeu #tdj
+      (quitterTableJeu) = "acc.onQuitterCreationPartie($event)">
     </app-table-de-jeu>
 
 </div>

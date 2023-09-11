@@ -1,1 +1,42 @@
-<p>table-de-jeu works!</p>
+<div *ngIf="visible" class="format-general">
+    <h5 class="Contexte">Partie {{infoPartie.id}}, Brasse 1, Pré flop</h5>
+
+    <figure>
+        <img class="format-carte" src="{{svrURL}}../images/cartes/vide.png">
+        <img class="format-carte" src="{{svrURL}}../images/cartes/vide.png">
+        <img class="format-carte" src="{{svrURL}}../images/cartes/vide.png">
+        &nbsp;
+        <img class="format-carte" src="{{svrURL}}../images/cartes/vide.png">
+        &nbsp;
+        <img class="format-carte" src="{{svrURL}}../images/cartes/vide.png">
+  <section *ngIf="true">
+        <button>se coucher</button> 
+        <button>suivre</button> 
+        <button>relancer</button> 
+  </section>
+  <section *ngIf="false">
+    <figcaption>On attend la décision de X</figcaption>
+</section>
+</figure> 
+
+    <section class="row">
+       <article class="col-3">
+          <div *ngFor="let joueur of infoPartie.joueurs">
+            <figure style="clear:left" class="format-aligner cadre-joueur">
+                <img class="format-avatar" src="{{svrURL}}../images/joueurs/joueurDefaut.png" alt="{{joueur.id}}">
+
+                <img class="format-avatar" src="{{svrURL}}../images/cartes/pique_dame.png" alt="dame de pique">
+                <img class="format-avatar" src="{{svrURL}}../images/cartes/coeur_roi.png" alt="roi de coeur">
+               
+                <figcaption>{{joueur.nom}} {{joueur.capital}}</figcaption> 
+            </figure>
+          </div>
+       </article>
+       <article>
+          <button (click)="quitterPartie()">Accueil</button> 
+       </article>
+    </section>
+
+
+</div>
+    

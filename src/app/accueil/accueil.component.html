@@ -3,14 +3,32 @@
     <h5>Bienvenue {{joueurConnecte.nom}}</h5>
    </section>
 
-   <section class="row">
-
-
-      <button class="btn btn-primary" (click)="creationPartie()">Créer une partie</button> 
-      <button  class="btn btn-warning" (click)="quitter()">quitter</button>
-
+   <section class="row Contexte">
+      <article>
+         <a class='btn btn-success' (click)= 'basculePartiesEncours()'>Parties en cours</a>
+       </article>
+       
+       <article *ngIf="ouvrirListePartiesEnCours">
+         <div *ngFor="let np of tabNumPartiesEnCours">
+           <span class='badge bg-primary' (click)="ouvrirPartie(np)">partie {{np}}</span>
+         </div>		  
+       </article><br>
+   
    </section>
 
+
+   <section class="row Contexte">
+    <form>
+      <button  class="btn btn-warning" (click)="quitter()">quitter</button>
+      <button class="btn btn-primary" (click)="creationPartie()">Créer une partie</button> 
+      <button class="btn btn-info" (click)="parametres()">Paramètres</button> 
+   </form>
+   </section>
+
+      <!-- SECTION PARTIES et tournois en cours -------------------------------------->
+     
+   
+      
 
 
 </div>

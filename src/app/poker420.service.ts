@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { urlServeur } from './util';
+import { tr,urlServeur } from './util';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Joueur } from './modele/joueur';
+import { InfoPartie } from './modele/infoPartie';
 
 
 
@@ -84,7 +85,7 @@ export class Poker420Service {
                       }  
       });
 
-      return this.http.post<Joueur>(url, params);
+      return this.http.post<InfoPartie>(url, params);
 
   }
 
@@ -94,12 +95,46 @@ export class Poker420Service {
   //--------------------------------
   //
   //--------------------------------
-  getJoueurs()
+  getJoueurs(idJ:number)
   {
-    let url =urlServeur + "getJoueurs";
+    let url =urlServeur + "getJoueurs?idJ=" + idJ;
 
     return this.http.get<Joueur[]>(url);
   }
+
+  //--------------------------------
+  //
+  //--------------------------------
+  getPartiesDUnJoueur(j:Joueur)
+  {
+    let url = urlServeur + 'getPartiesDUnJoueur';
+    tr("joueur:"+j.id, true);
+
+    
+    const params = new HttpParams({
+      fromObject: { idJ : j.id
+                  }
+      }); 
+      return this.http.post<number[]>(url, params);   
+  }
+
+  //--------------------------------
+  //
+  //--------------------------------
+  getInfoPartieEnCours(idPartie:number, j:Joueur)
+  {
+    tr("Info pour la partie " + idPartie);
+    let url = urlServeur + 'getInfoPartieEnCours';
+    const params = new HttpParams({
+      fromObject: { idPartie : idPartie,
+                    idJConnecte : j.id}
+      });
+
+    return this.http.post<InfoPartie>(url,params);                    
+  }
+
+
+
 
 
 }

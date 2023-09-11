@@ -13,8 +13,10 @@ export class CreationPartieComponent {
   visible=false;
   tabJoueurs = new Array();
   joueur:Joueur = new JoueurCandidat();
+  
 
   @Output() demarrerPartie=new EventEmitter<Joueur[]>();
+  @Output() quitterCreationPartie= new EventEmitter<Joueur>();
 
   //--------------------------------------
   //
@@ -30,8 +32,8 @@ export class CreationPartieComponent {
   {
     //tr("Création de partie", true);
     this.visible= true;
-    this.afficherJoueurs();
     this.joueur = j;
+    this.afficherJoueurs();
   }
 
   //--------------------------------------
@@ -39,7 +41,7 @@ export class CreationPartieComponent {
   //--------------------------------------
   afficherJoueurs()
   {
-    this.pk420Srv.getJoueurs().subscribe(
+    this.pk420Srv.getJoueurs(this.joueur.id).subscribe(
       tabJoueurs => {
          this.tabJoueurs = tabJoueurs;
 
@@ -114,8 +116,11 @@ export class CreationPartieComponent {
   //--------------------------------------
   //
   //--------------------------------------
-  quitter()
+  retourAccueil()
   {
+    this.visible = false;
+    this.quitterCreationPartie.emit(this.joueur);
+
 
   }
 
