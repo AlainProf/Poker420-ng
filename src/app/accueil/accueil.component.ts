@@ -94,16 +94,18 @@ export class AccueilComponent {
   //--------------------------------
   //
   //--------------------------------
-  getAvatar()
+  getAvatar(id:number)
   {
-    return getURLAvatar(this.joueurConnecte.id);
+    return getURLAvatar(id);
   }
   //--------------------------------
   //
   //--------------------------------
   parametres()
   {
-
+    this.visible=false;
+   
+    this.ouvrirParametres.emit(this.joueurConnecte);
   }
 
 

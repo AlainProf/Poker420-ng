@@ -1,6 +1,8 @@
 <div *ngIf="visible">
    <section class="row Contexte">
-    <h5>Bienvenue {{joueurConnecte.nom}}</h5>
+    <h5>Bienvenue {{joueurConnecte.nom}} 
+      <img src="{{getAvatar(joueurConnecte.id)}}" alt="{{joueurConnecte.nom}}">
+    </h5>
    </section>
 
    <section class="row Contexte">

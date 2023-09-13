@@ -9,6 +9,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { CreationPartieComponent } from './creation-partie/creation-partie.component';
 import { TableDeJeuComponent } from './table-de-jeu/table-de-jeu.component';
+import { ParametreComponent } from './parametre/parametre.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TableDeJeuComponent } from './table-de-jeu/table-de-jeu.component';
     ConnexionComponent,
     AccueilComponent,
     CreationPartieComponent,
-    TableDeJeuComponent
+    TableDeJeuComponent,
+    ParametreComponent
   ],
   imports: [
     BrowserModule,

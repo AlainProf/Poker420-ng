@@ -22,3 +22,5 @@ export function getURLAvatar(joueurId:number)
 }
 
 export const urlServeur = "http://localhost/poker420-sf/public/index.php/";
+
+export const MAX_FICHIER_VOLUME:number = 500*1048;

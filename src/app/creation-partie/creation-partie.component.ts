@@ -41,7 +41,7 @@ export class CreationPartieComponent {
   //--------------------------------------
   afficherJoueurs()
   {
-    this.pk420Srv.getJoueurs(this.joueur.id).subscribe(
+    this.pk420Srv.getJoueurs(this.joueur).subscribe(
       tabJoueurs => {
          this.tabJoueurs = tabJoueurs;
 

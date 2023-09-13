@@ -54,6 +54,8 @@ export class Poker420Service {
     let url =urlServeur + "creationPartie";
     let joueursEnvoyes = new Array()
 
+    
+
 
     for(let i=0; i<10; i++)
     {
@@ -67,11 +69,9 @@ export class Poker420Service {
       }
     }
 
-
-
-
     const params = new HttpParams( {
      fromObject:  { 
+      jwt : joueursEnvoyes[0].jwt,
       idJ0 : joueursEnvoyes[0],
       idJ1 : joueursEnvoyes[1],
       idJ2 : joueursEnvoyes[2],
@@ -95,9 +95,9 @@ export class Poker420Service {
   //--------------------------------
   //
   //--------------------------------
-  getJoueurs(idJ:number)
+  getJoueurs(j:Joueur)
   {
-    let url =urlServeur + "getJoueurs?idJ=" + idJ;
+    let url =urlServeur + "getJoueurs?idJ=" + j.id;
 
     return this.http.get<Joueur[]>(url);
   }
@@ -108,7 +108,7 @@ export class Poker420Service {
   getPartiesDUnJoueur(j:Joueur)
   {
     let url = urlServeur + 'getPartiesDUnJoueur';
-    tr("joueur:"+j.id, true);
+    //tr("joueur:"+j.id, true);
 
     
     const params = new HttpParams({
@@ -132,6 +132,16 @@ export class Poker420Service {
 
     return this.http.post<InfoPartie>(url,params);                    
   }
+
+   //--------------------------------
+  //
+  //--------------------------------
+  televerseFichier(info:FormData)
+  {
+    let url = urlServeur + 'televerseAvatar';
+    return this.http.post<string>(url, info);
+  }  
+
 
 
 

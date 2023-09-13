@@ -3,6 +3,7 @@ export class Joueur{
     nom:string = "";
     motDePasse:string = "";
     courriel="";
+    jwt='';
 };
 
 export class JoueurCandidat extends Joueur{
