@@ -14,10 +14,10 @@ export function tr(msg:string, dial:boolean = false, conso:boolean=true)
 export function getURLAvatar(joueurId:number)
 {
   // en ajoutant le param bidon du GET (random=) on force le refresh de l'image!
-  let urltmp = urlServeur + '../images/joueurs/' + joueurId + ".png" + '?random=' + Math.random(); 
+  //let urltmp = urlServeur + '../images/joueurs/' + joueurId + ".png" + '?random=' + Math.random(); 
 
   // en enlevant le param bidon du GET (random=) on enlève l'erreur de dév de la console du fureteur!
-  //let urltmp = urlServeur + '../images/joueurs/' + joueurId + ".png"; 
+  let urltmp = urlServeur + '../images/joueurs/' + joueurId + ".png"; 
   return urltmp;
 }
 

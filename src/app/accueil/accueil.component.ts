@@ -47,6 +47,7 @@ export class AccueilComponent {
     this.pkrSrv.getPartiesDUnJoueur(j).subscribe(
       toto => {
          this.tabNumPartiesEnCours = toto;
+         tr("Il y a " + this.tabNumPartiesEnCours.length + "parties en cours", true);
       }
     );
 
@@ -58,6 +59,7 @@ export class AccueilComponent {
   basculePartiesEncours()
   {
      this.ouvrirListePartiesEnCours = !this.ouvrirListePartiesEnCours;
+     tr("Ouvrir p en c est:" +  this.ouvrirListePartiesEnCours);
   }
 
   //--------------------------------
@@ -94,9 +96,9 @@ export class AccueilComponent {
   //--------------------------------
   //
   //--------------------------------
-  getAvatar(id:number)
+  getAvatar()
   {
-    return getURLAvatar(id);
+    return getURLAvatar(this.joueurConnecte.id);
   }
   //--------------------------------
   //

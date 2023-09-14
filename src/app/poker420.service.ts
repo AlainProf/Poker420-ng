@@ -52,10 +52,9 @@ export class Poker420Service {
   creationPartie(joueurs:Joueur[])
   {
     let url =urlServeur + "creationPartie";
-    let joueursEnvoyes = new Array()
+    let joueursEnvoyes = new Array();
 
-    
-
+    tr("Création partie avec jwt:" + joueurs[0].jwt, true);
 
     for(let i=0; i<10; i++)
     {
@@ -69,9 +68,10 @@ export class Poker420Service {
       }
     }
 
+    //tr("Création partie avec jwt2:" + joueursEnvoyes[0].jwt, true);
     const params = new HttpParams( {
      fromObject:  { 
-      jwt : joueursEnvoyes[0].jwt,
+      jwt : joueurs[0].jwt,
       idJ0 : joueursEnvoyes[0],
       idJ1 : joueursEnvoyes[1],
       idJ2 : joueursEnvoyes[2],

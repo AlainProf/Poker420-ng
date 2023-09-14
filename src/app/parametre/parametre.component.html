@@ -5,8 +5,8 @@
 
     <section class="row">
       <article class="col-3">
-       <!--img width=100 src='{{ getURLAvatar() }}' alt="image absente"-->       
-       <img width=100 src="{{ svrURL + '../images/joueurs/' + joueurConnecte.id + '.png' }}" alt="image absente">       
+       <img width=100 src='{{ getAvatar() }}' alt="image absente">       
+       <!--img width=100 src="{{ svrURL + '../images/joueurs/' + joueurConnecte.id + '.png' }}" alt="image absente"-->       
       </article>
 
       <article class="col-9">
@@ -23,7 +23,7 @@
           </button>
         
           <button (click)='annulerTeleverse()' name="btnAnnulerTele">
-           Annuler
+           Accueil
           </button>
         </form>
         </div>

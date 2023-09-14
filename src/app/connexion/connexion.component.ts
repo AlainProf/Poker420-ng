@@ -51,7 +51,8 @@ export class ConnexionComponent {
           }
           else
           {
-            tr("Joueur connexté:" + joueurConnec.nom);
+            tr("Joueur connecté:" + joueurConnec.nom,true);
+            tr("avec le JWT :" + joueurConnec.jwt, true);
             this.joueurConnecte = joueurConnec;
             this.connexionReussie.emit(this.joueurConnecte);
           }

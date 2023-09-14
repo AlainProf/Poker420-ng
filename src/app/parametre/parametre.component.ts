@@ -1,6 +1,6 @@
 import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 import { Joueur } from './../modele/joueur';
-import { urlServeur,tr, MAX_FICHIER_VOLUME } from '../util';
+import { urlServeur,tr, MAX_FICHIER_VOLUME, getURLAvatar } from '../util';
 import { Poker420Service} from './../poker420.service';
 
 @Component({
@@ -42,28 +42,11 @@ export class ParametreComponent implements OnInit {
     this.joueurConnecte = j;
   }
 
-//------------------------------------
-//
-//------------------------------------
-getURLAvatarAvecErreurEnDev()
-{
-  // en ajoutant le param bidon du GET (random=) on force le refresh de l'image!
-  let urltmp = this.svrURL + '../images/joueurs/' + this.joueurConnecte.id + ".png" + '?random=' + Math.random(); 
-  return urltmp;
-}
+  getAvatar()
+  {
+    return getURLAvatar(this.joueurConnecte.id);
+  }
 
-//------------------------------------
-//
-//------------------------------------
-getURLAvatar()
-{
-  // en ajoutant le param bidon du GET (random=) on force le refresh de l'image!
-  let urltmp = this.svrURL + '../images/joueurs/' + this.joueurConnecte.id + ".png" + '?random=' + Math.random(); 
-
-  // en enlevant le param bidon du GET (random=) on enlève l'erreur de dév de la console du fureteur!
-  //let urltmp = this.svrURL + '../images/joueurs/' + this.joueurConnecte.id + ".png"; 
-  return urltmp;
-}
 
 //------------------------------------
 //
